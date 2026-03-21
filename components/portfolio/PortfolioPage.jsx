@@ -115,7 +115,7 @@ const CAREERS = [
       { num: '03', text: 'H사 MV1 ILCU 제어기 진단 기능 구현 검증 테스트 (ES)', extra: ['제어기 진단 통신 시 구현된 기능 상 보안 취약점 분석 및 검증']},
       { num: '04', text: 'H사 ADAS DRV2 제어기 모의해킹 & 유럽 사이버보안 인증 심사 대응 (UNECE)' },
       { num: '05', text: 'L사 차량 인포테인먼트 시스템 모의해킹 (Jaguar Land Rover, IP37)' },
-      { num: '06', text: 'KATRI 국내 차량 통합보안시험도구 개발', extra: ['CAN, Automotive-Ethernet, Bluetooth, RF, NFC 프로토콜을 대상으로 알려진 보안 취약점 점검 및 기능 구현 취약점 여부 확인 기능 구현']},
+      { num: '06', text: 'KATRI 국내 차량 통합보안시험도구 개발', extra: ['CAN, Automotive-Ethernet, Bluetooth, RF, NFC 주요 자동차 통신 프로토콜을 대상으로 알려진 보안 취약점 점검 및 통신 과정의 취약점 여부 확인 기능 구현']},
       { num: '07', text: 'L사 차량 인포테인먼트 시스템 모의해킹 (Volkswagen, ID Series)' },
       { num: '08', text: 'L사 차량 제어기 모의해킹 (VCM, TCUA)' },
       { num: '09', text: 'L사 차량 클러스터 제어기 모의해킹 (Mercedes Benz, BR167)' },
@@ -134,7 +134,7 @@ const CAREERS = [
       {
         num: '01',
         text: '2021 사이버보안챌린지 자동차 인포테인먼트 시스템 공격/방어 대회 참가 및 연구(취약점 공격 및 방어 시스템 구현)',
-        extra: ['퍼징·리버싱 기반 취약점 발굴과 방어 로직 구현을 병행하여 실전형 공격/방어 역량 강화']
+        extra: ['AGL(Automotive Grade Linux) 오픈소스로 제공되는 통합 차량 인포테인먼트 시스템(OS)내 존재하는 취약점 식별 및 개념 증명 작성, 침입 탐지 시스템(IDS) 구현']
       },
     ]
   },
