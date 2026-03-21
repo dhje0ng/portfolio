@@ -90,15 +90,13 @@ const EDUCATION = [
     school: 'Yeungnam University College',
     degree: 'Cybersecurity department',
     period: '2018 – 2022',
-    gpa: '3.9 / 4.5',
-    desc: '웹 프론트엔드, UX, 보안 프로젝트 중심으로 실무형 결과물 제작. 졸업 논문: XSS 탐지 자동화 시스템 설계.'
+    location: 'Daegu, South Korea',
   },
   {
     school: 'OO 아카데미',
     degree: 'Frontend Engineering Track',
     period: '2022',
-    gpa: null,
-    desc: 'React, Next.js, TypeScript, 디자인 시스템, 성능 최적화 심화 과정 수료.'
+    location: 'Seoul, South Korea',
   }
 ];
 
@@ -770,18 +768,6 @@ export default function PortfolioPage() {
                 </div>
               ))}
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', padding: '16px 0' }}>
-                {[
-                  { label: 'Projects', value: <Counter to={18} suffix="+" /> },
-                  { label: 'Talks', value: <Counter to={7} /> },
-                  { label: 'Reports', value: <Counter to={12} /> }
-                ].map((stat, i) => (
-                  <div key={stat.label} style={{ textAlign: 'center', borderRight: i < 2 ? `1px solid ${t.cardBorder}` : 'none', padding: '8px 0' }}>
-                    <div style={{ fontWeight: 800, fontSize: '1.3rem', color: t.indigo }}>{stat.value}</div>
-                    <div style={{ fontFamily: "'Fira Code', monospace", fontSize: '0.58rem', color: t.fg3, marginTop: 2, letterSpacing: '0.1em' }}>{stat.label}</div>
-                  </div>
-                ))}
-              </div>
             </motion.div>
           </div>
         </motion.div>
@@ -813,11 +799,10 @@ export default function PortfolioPage() {
                     <div>
                       <div style={{ fontWeight: 700, fontSize: '0.95rem', color: t.fg }}>{ed.school}</div>
                       <div style={{ fontFamily: "'Fira Code', monospace", fontSize: '0.68rem', color: t.indigo, marginTop: 3 }}>{ed.degree}</div>
+                      {ed.location && <div style={{ fontFamily: "'Fira Code', monospace", fontSize: '0.68rem', color: t.fg3, marginTop: 6 }}>{ed.location}</div>}
                     </div>
                     <Badge t={t} color="ghost">{ed.period}</Badge>
                   </div>
-                  {ed.gpa && <div style={{ fontFamily: "'Fira Code', monospace", fontSize: '0.68rem', color: t.fg3, marginBottom: 10 }}>GPA {ed.gpa}</div>}
-                  <p style={{ fontSize: '0.8rem', lineHeight: 1.75, color: t.fg2 }}>{ed.desc}</p>
                 </motion.div>
               ))}
             </div>
