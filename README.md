@@ -15,3 +15,11 @@ npm run dev
 npm run build
 npm run start
 ```
+
+## 충돌 검사
+
+아래 명령으로 저장소 전체 파일에서 Git merge conflict 마커(`<<<<<<<`, `=======`, `>>>>>>>`)를 자동 검사할 수 있습니다.
+
+```bash
+npm run check:conflicts
+```
