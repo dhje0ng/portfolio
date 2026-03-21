@@ -110,7 +110,11 @@ const CAREERS = [
     summary: 'Automotive ECU Pentesting and UNECE Cybersecurity Readiness Support',
     stack: ['Penetration Testing', 'Automotive', 'UNECE'],
     details: [
-      { num: '01', text: 'L사 차량 인포테인먼트 시스템 모의해킹 (Jaguar Land Rover)' },
+      {
+        num: '01',
+        text: 'L사 차량 인포테인먼트 시스템 모의해킹 (Jaguar Land Rover)',
+        extra: ['USB·Bluetooth·네트워크 인터페이스 관점 공격 시나리오를 수립해 실차 검증까지 수행']
+      },
       { num: '02', text: 'E사 차량 조향 제어기 모의해킹' },
       { num: '03', text: 'H사 MV1 ILCU 제어기 기능 구현 검증 테스트 (ES)' },
       { num: '04', text: 'H사 ADAS DRV2 제어기 모의해킹 & 유럽 사이버보안 인증 심사 대응 (UNECE)' },
@@ -131,9 +135,30 @@ const CAREERS = [
     summary: 'Research and Competition Participation in Automotive Attack & Defense, 2021 Cyber Security Challenge',
     stack: ['Vulnerability Research'],
     details: [
-      { num: '01', text: '2021 사이버보안챌린지 자동차 인포테인먼트 시스템 공격/방어 대회 참가 및 연구(취약점 공격 및 방어 시스템 구현)' },
+      {
+        num: '01',
+        text: '2021 사이버보안챌린지 자동차 인포테인먼트 시스템 공격/방어 대회 참가 및 연구(취약점 공격 및 방어 시스템 구현)',
+        extra: ['퍼징·리버싱 기반 취약점 발굴과 방어 로직 구현을 병행하여 실전형 공격/방어 역량 강화']
+      },
     ]
   },
+];
+
+const AWARDS = [
+  {
+    date: '2021.10',
+    contest: '2021 사이버보안챌린지 자동차 공격/방어',
+    result: '우수상',
+    participationType: '팀',
+    participantName: 'Team AutoDefenders'
+  },
+  {
+    date: '2020.11',
+    contest: '교내 정보보호 아이디어 경진대회',
+    result: '최우수상',
+    participationType: '개인',
+    participantName: '정동현'
+  }
 ];
 
 const ACTIVITIES = [
@@ -427,9 +452,20 @@ function CareerCard({ item, t, dark }) {
           >
             <div style={{ borderTop: `1px solid ${t.cardBorder}`, padding: '20px 28px', display: 'flex', flexDirection: 'column', gap: 10 }}>
               {item.details.map((d) => (
-                <div key={d.num} style={{ display: 'flex', gap: 14, alignItems: 'baseline' }}>
-                  <span style={{ fontFamily: "'Fira Code', monospace", fontSize: '0.6rem', color: t.indigo, flexShrink: 0, opacity: 0.8 }}>{d.num}</span>
-                  <span style={{ fontSize: '0.85rem', lineHeight: 1.7, color: t.fg2 }}>{d.text}</span>
+                <div key={d.num} style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
+                  <span style={{ fontFamily: "'Fira Code', monospace", fontSize: '0.6rem', color: t.indigo, flexShrink: 0, opacity: 0.8, lineHeight: 1.8 }}>{d.num}</span>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+                    <span style={{ fontSize: '0.85rem', lineHeight: 1.7, color: t.fg2 }}>{d.text}</span>
+                    {Array.isArray(d.extra) && d.extra.length > 0 && (
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: 6, paddingLeft: 12, marginLeft: 2, borderLeft: `2px solid ${t.indigo}66` }}>
+                        {d.extra.map((desc, idx) => (
+                          <span key={`${d.num}-extra-${idx}`} style={{ fontSize: '0.78rem', lineHeight: 1.65, color: t.fg3 }}>
+                            · {desc}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
@@ -795,13 +831,44 @@ export default function PortfolioPage() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
               {CAREERS.map((c, i) => (
                 <motion.div
-                  key={c.company}
+                  key={`${c.company}-${c.role}-${c.period}`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.12, duration: 0.5 }}
                 >
                   <CareerCard item={c} t={t} dark={dark} />
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          <div style={{ marginTop: 56 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 24 }}>
+              <div style={{ width: 32, height: 32, borderRadius: 8, background: t.indigoBg, border: `1px solid ${t.border}`, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <Award size={16} color={t.indigo} />
+              </div>
+              <span style={{ fontWeight: 700, fontSize: '1rem', color: t.fg }}>수상 이력</span>
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: isTablet ? '1fr' : 'repeat(2, 1fr)', gap: 16 }}>
+              {AWARDS.map((award, i) => (
+                <motion.div
+                  key={`${award.date}-${award.contest}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1, duration: 0.5 }}
+                  style={{ borderRadius: 16, border: `1px solid ${t.cardBorder}`, background: t.card, boxShadow: t.shadow, padding: '20px 22px', display: 'flex', flexDirection: 'column', gap: 10 }}
+                >
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
+                    <span style={{ fontFamily: "'Fira Code', monospace", fontSize: '0.68rem', color: t.indigo }}>{award.date}</span>
+                    <Badge t={t} color="ghost">{award.participationType}</Badge>
+                  </div>
+                  <div style={{ fontWeight: 700, fontSize: '0.92rem', color: t.fg, lineHeight: 1.4 }}>{award.contest}</div>
+                  <div style={{ fontSize: '0.82rem', color: t.fg2 }}>결과: <span style={{ color: t.indigo, fontWeight: 700 }}>{award.result}</span></div>
+                  <div style={{ fontFamily: "'Fira Code', monospace", fontSize: '0.7rem', color: t.fg3 }}>
+                    {award.participationType}/{award.participantName}
+                  </div>
                 </motion.div>
               ))}
             </div>
