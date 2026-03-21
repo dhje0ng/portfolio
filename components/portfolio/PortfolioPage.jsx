@@ -228,7 +228,7 @@ const VULNS = [
     severity: 'Medium',
     target: 'BMW Automotive',
     desc: 'This is not published. (NDA)',
-    reference: null,
+    reference: 'https://www.bmwgroup.com/en/general/Security.html',
     status: 'Resolved',
     date: '2022.12'
   }
@@ -605,7 +605,7 @@ export default function PortfolioPage() {
             <div style={{ width: 32, height: 32, borderRadius: 8, background: t.indigo, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <Code2 size={16} color="#fff" />
             </div>
-            <span style={{ fontFamily: "'Fira Code', monospace", fontSize: '0.8rem', color: t.indigo, letterSpacing: '0.05em' }}>portfolio.dev</span>
+            <span style={{ fontFamily: "'Fira Code', monospace", fontSize: '0.8rem', color: t.indigo, letterSpacing: '0.05em' }}>DH.J</span>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: 4, overflowX: isMobile ? 'auto' : 'visible', maxWidth: isMobile ? '58vw' : 'none', scrollbarWidth: 'none' }}>
@@ -920,7 +920,7 @@ export default function PortfolioPage() {
                 <div style={{ width: 28, height: 28, borderRadius: 7, background: t.indigo, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <Code2 size={13} color="#fff" />
                 </div>
-                <span style={{ fontFamily: "'Fira Code', monospace", fontSize: '0.75rem', color: t.indigo }}>portfolio.dev</span>
+                <span style={{ fontFamily: "'Fira Code', monospace", fontSize: '0.75rem', color: t.indigo }}>DH.J</span>
               </div>
               <p style={{ fontFamily: "'Fira Code', monospace", fontSize: '0.65rem', color: t.fg3, lineHeight: 1.7 }}>
                 © 2026 {PROFILE.nameKo}. All rights reserved.
