@@ -110,20 +110,16 @@ const CAREERS = [
     summary: 'Automotive ECU Pentesting and UNECE Cybersecurity Readiness Support',
     stack: ['Penetration Testing', 'Automotive', 'UNECE'],
     details: [
-      {
-        num: '01',
-        text: 'L사 차량 인포테인먼트 시스템 모의해킹 (Jaguar Land Rover)',
-        extra: ['USB·Bluetooth·네트워크 인터페이스 관점 공격 시나리오를 수립해 실차 검증까지 수행']
-      },
+      { num: '01', text: 'L사 차량 인포테인먼트 시스템 모의해킹 (Jaguar Land Rover, IP34)' },
       { num: '02', text: 'E사 차량 조향 제어기 모의해킹' },
-      { num: '03', text: 'H사 MV1 ILCU 제어기 기능 구현 검증 테스트 (ES)' },
+      { num: '03', text: 'H사 MV1 ILCU 제어기 진단 기능 구현 검증 테스트 (ES)', extra: ['제어기 진단 통신 시 구현된 기능 상 보안 취약점 분석 및 검증']},
       { num: '04', text: 'H사 ADAS DRV2 제어기 모의해킹 & 유럽 사이버보안 인증 심사 대응 (UNECE)' },
-      { num: '05', text: 'L사 P-IVI 차량 인포테인먼트 시스템 모의해킹 #2' },
-      { num: '06', text: 'KATRI 국내 차량 통합보안시험도구 개발 (CAN, Automotive-Ethernet, Bluetooth, RF, NFC)' },
+      { num: '05', text: 'L사 차량 인포테인먼트 시스템 모의해킹 (Jaguar Land Rover, IP37)' },
+      { num: '06', text: 'KATRI 국내 차량 통합보안시험도구 개발', extra: ['CAN, Automotive-Ethernet, Bluetooth, RF, NFC 프로토콜을 대상으로 알려진 보안 취약점 점검 및 기능 구현 취약점 여부 확인 기능 구현']},
       { num: '07', text: 'L사 차량 인포테인먼트 시스템 모의해킹 (Volkswagen, ID Series)' },
       { num: '08', text: 'L사 차량 제어기 모의해킹 (VCM, TCUA)' },
       { num: '09', text: 'L사 차량 클러스터 제어기 모의해킹 (Mercedes Benz, BR167)' },
-      { num: '10', text: 'G사 차량 진단기 윈도우 프로그램 모의해킹' },
+      { num: '10', text: 'G사 차량 진단기 프로그램 모의해킹', extra: ['윈도우 기반 어플리케이션으로 차량과 진단기 간 통신 과정에서 발생할 수 있는 취약점 분석(통신, 암호화 등) 및 개념 증명']},
     ]
   },
   {
@@ -146,18 +142,39 @@ const CAREERS = [
 
 const AWARDS = [
   {
-    date: '2021.10',
-    contest: '2021 사이버보안챌린지 자동차 공격/방어',
-    result: '우수상',
-    participationType: '팀',
-    participantName: 'Team AutoDefenders'
+    date: '2024.08',
+    contest: 'Vicone X Blockharbor Cybersecurity Automotive CTF',
+    result: '3rd place',
+    participationType: 'Team',
+    participantName: 'JJJJJ'
   },
   {
-    date: '2020.11',
-    contest: '교내 정보보호 아이디어 경진대회',
-    result: '최우수상',
-    participationType: '개인',
-    participantName: '정동현'
+    date: '2023.09 ~ 2023.10',
+    contest: 'Blockharbor Cybersecurity Automotive CTF Season 1',
+    result: '9rd place',
+    participationType: 'Personal',
+    participantName: 'dhjisgod'
+  },
+  {
+    date: '2021.06 ~ 2021.11',
+    contest: '2021 Cybersecurity Challenge (Automotive Attack & Defense)',
+    result: '1st place',
+    participationType: 'Team',
+    participantName: 'AUTOCRYPT'
+  },
+  {
+    date: '2021.09',
+    contest: 'The 2nd KOSPO Web Service Security Competition',
+    result: 'Honorable Mention',
+    participationType: 'Team',
+    participantName: '고점에사람있어요'
+  },
+  {
+    date: '2018.11',
+    contest: 'The 3rd Y-CTF Vulnerability Analaysis & Penetration Testing Competition',
+    result: '1st place',
+    participationType: 'Team',
+    participantName: '김봉혁의 빠루교실'
   }
 ];
 
