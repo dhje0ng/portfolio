@@ -110,7 +110,16 @@ const CAREERS = [
     summary: 'Automotive ECU Pentesting and UNECE Cybersecurity Readiness Support',
     stack: ['Penetration Testing', 'Automotive', 'UNECE'],
     details: [
-      { num: '01', text: '테스트' },
+      { num: '01', text: 'L사 차량 인포테인먼트 시스템 모의해킹 (Jaguar Land Rover)' },
+      { num: '02', text: 'E사 차량 조향 제어기 모의해킹' },
+      { num: '03', text: 'H사 MV1 ILCU 제어기 기능 구현 검증 테스트 (ES)' },
+      { num: '04', text: 'H사 ADAS DRV2 제어기 모의해킹 & 유럽 사이버보안 인증 심사 대응 (UNECE)' },
+      { num: '05', text: 'L사 P-IVI 차량 인포테인먼트 시스템 모의해킹 #2' },
+      { num: '06', text: 'KATRI 국내 차량 통합보안시험도구 개발 (CAN, Automotive-Ethernet, Bluetooth, RF, NFC)' },
+      { num: '07', text: 'L사 차량 인포테인먼트 시스템 모의해킹 (Volkswagen, ID Series)' },
+      { num: '08', text: 'L사 차량 제어기 모의해킹 (VCM, TCUA)' },
+      { num: '09', text: 'L사 차량 클러스터 제어기 모의해킹 (Mercedes Benz, BR167)' },
+      { num: '10', text: 'G사 차량 진단기 윈도우 프로그램 모의해킹' },
     ]
   },
   {
@@ -119,7 +128,7 @@ const CAREERS = [
     period: '2021.06 - 2021.12',
     type: 'Full-time',
     location: 'Seoul, South Korea',
-    summary: 'Automotive ECU Pentesting and UNECE Cybersecurity Readiness Support',
+    summary: 'Research and Competition Participation in Automotive Attack & Defense, 2021 Cyber Security Challenge',
     stack: ['Vulnerability Research'],
     details: [
       { num: '01', text: '2021 사이버보안챌린지 자동차 인포테인먼트 시스템 공격/방어 대회 참가 및 연구(취약점 공격 및 방어 시스템 구현)' },
@@ -129,41 +138,14 @@ const CAREERS = [
 
 const ACTIVITIES = [
   {
-    title: 'OO Frontend Conf 2025',
+    title: 'How to USB fuzzing in vehicles to discover the real world vulnerability',
     type: 'Conference',
     role: 'Speaker',
-    period: '2025.10',
-    org: 'FEConf Korea',
-    desc: '컴포넌트 설계 원칙과 인터랙션 중심 UI 구현 경험 발표. 참석자 800+',
+    period: '2023.08',
+    org: 'DEFCON, Car Hacking Village',
+    desc: '실제 차량에서 USB 퍼징을 수행하고 취약점을 찾는 과정에 대한 발표 내용입니다.',
     icon: <Mic size={16} />
   },
-  {
-    title: 'Web Performance Deep Dive',
-    type: 'Seminar',
-    role: 'Speaker',
-    period: '2025.06',
-    org: '토스 개발자 컨퍼런스',
-    desc: 'Core Web Vitals 최적화 실전 사례 발표. LCP, CLS 개선 노하우 공유',
-    icon: <Mic size={16} />
-  },
-  {
-    title: 'FE Crew Seoul',
-    type: 'Community',
-    role: 'Organizer',
-    period: '2024 — Present',
-    org: '자체 운영',
-    desc: '월간 세미나 기획, 발표자 섭외, 기술 콘텐츠 운영. 멤버 200+',
-    icon: <Users size={16} />
-  },
-  {
-    title: 'Kakao Tech Challenge',
-    type: 'Award',
-    role: '수상',
-    period: '2023.12',
-    org: 'Kakao',
-    desc: '프론트엔드 최적화 부문 우수상 수상. 빌드 타임 56% 단축 구현',
-    icon: <Award size={16} />
-  }
 ];
 
 const VULNS = [
