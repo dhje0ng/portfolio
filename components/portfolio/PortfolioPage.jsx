@@ -73,16 +73,16 @@ const GlobalStyles = ({ dark }) => (
 );
 
 const PROFILE = {
-  name: 'Kim Dev',
-  nameKo: '김개발',
-  title: 'Frontend Developer',
+  name: 'Donghyeon Jeong',
+  nameKo: '정동현',
+  title: 'Security Researcher',
   subtitle: 'UI Engineer · Web Interaction · Security Research',
   location: 'Seoul, Korea',
-  email: 'hello@kimdev.io',
-  blog: 'blog.kimdev.io',
-  github: 'github.com/kimdev',
-  bio: '인터랙션과 퍼포먼스를 동시에 추구하는 프론트엔드 개발자입니다. 컴포넌트 설계부터 보안 리서치까지, 웹의 다양한 레이어를 탐구합니다.',
-  skills: ['React', 'Next.js', 'TypeScript', 'Tailwind', 'Framer Motion', 'Node.js', 'Figma', 'Security']
+  email: 'dhje0ng@naver.com',
+  blog: 'dhjeong.kr',
+  github: 'github.com/dhje0ng',
+  bio: 'test',
+  skills: ['Security']
 };
 
 const EDUCATION = [
