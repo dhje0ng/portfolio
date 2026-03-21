@@ -112,7 +112,7 @@ const CAREERS = [
     details: [
       { num: '01', text: 'L사 차량 인포테인먼트 시스템 모의해킹 (Jaguar Land Rover, IP34)' },
       { num: '02', text: 'E사 차량 조향 제어기 모의해킹' },
-      { num: '03', text: 'H사 MV1 ILCU 제어기 진단 기능 구현 검증 테스트 (ES)', extra: ['제어기 진단 통신 시 구현된 기능 상 보안 취약점 분석 및 검증']},
+      { num: '03', text: 'H사 MV1 ILCU 제어기 진단 기능 구현 검증 테스트 (ES)', extra: ['제어기 진단 통신 시 구현된 기능 상 보안 취약점 검증']},
       { num: '04', text: 'H사 ADAS DRV2 제어기 모의해킹 & 유럽 사이버보안 인증 심사 대응 (UNECE)' },
       { num: '05', text: 'L사 차량 인포테인먼트 시스템 모의해킹 (Jaguar Land Rover, IP37)' },
       { num: '06', text: 'KATRI 국내 차량 통합보안시험도구 개발', extra: ['CAN, Automotive-Ethernet, Bluetooth, RF, NFC 주요 자동차 통신 프로토콜을 대상으로 알려진 보안 취약점 점검 및 통신 과정의 취약점 여부 확인 기능 구현']},
@@ -192,44 +192,44 @@ const ACTIVITIES = [
 
 const VULNS = [
   {
-    id: 'CVE-2025-XXXXX',
+    id: 'CVE-2023-39075',
     type: 'CVE',
-    severity: 'High',
-    target: 'OO 플랫폼',
-    desc: '인증 토큰 검증 미흡으로 인한 계정 탈취 가능 취약점 분석 및 제보',
+    severity: 'Medium',
+    target: 'Renault Group (Model: 2021 ZOE)',
+    desc: '차량 인포테인먼트 시스템에 잘못된 USB 데이터 전송 시 시스템 충돌 (DoS)',
     status: 'Published',
     reward: null,
-    date: '2025.08'
+    date: '2023.08'
   },
   {
-    id: 'BB-2025-001',
-    type: 'Bug Bounty',
-    severity: 'Critical',
-    target: 'N사 서비스',
-    desc: 'Stored XSS → Session Hijacking 체인 어택 재현 및 PoC 리포트 작성',
-    status: 'Rewarded',
-    reward: '$2,500',
-    date: '2025.04'
-  },
-  {
-    id: 'BB-2024-017',
-    type: 'Bug Bounty',
+    id: 'CVE-2023-39076',
+    type: 'CVE',
     severity: 'Medium',
-    target: 'K사 API',
-    desc: '접근 제어 미흡(IDOR)으로 타 사용자 민감 정보 열람 가능 이슈 보고',
+    target: 'General Motors (Model: Chevrolet Equinox)',
+    desc: '차량 인포테인먼트 시스템에 잘못된 USB 데이터 전송 시 시스템 충돌 (DoS)',
+    status: 'Published',
+    reward: null,
+    date: '2023.08'
+  },
+  {
+    id: 'CVE-2023-23082',
+    type: 'CVE',
+    severity: 'Medium',
+    target: 'Kodi Foundation (S/W: xbmc)',
+    desc: '잘못된 이미지 처리 기능 구현으로 버퍼 오버플로우 취약점',
     status: 'Resolved',
     reward: '$800',
     date: '2024.11'
   },
   {
-    id: 'PRIV-2024-03',
-    type: 'Disclosure',
-    severity: 'Low',
-    target: '오픈소스 프로젝트',
-    desc: 'npm 패키지 prototype pollution 가능성 분석 및 maintainer에 제보',
-    status: 'Fixed',
-    reward: null,
-    date: '2024.07'
+    id: 'PRIV-2022-12',
+    type: 'Bug Bounty',
+    severity: 'Medium',
+    target: 'BMW Automotive',
+    desc: 'This is not published. (NDA)',
+    status: 'Resolved',
+    reward: '500$',
+    date: '2022.12'
   }
 ];
 
@@ -661,9 +661,9 @@ export default function PortfolioPage() {
                 </div>
 
                 <h1 style={{ fontSize: 'clamp(2.6rem, 5vw, 4rem)', fontWeight: 800, lineHeight: 1.06, letterSpacing: '-0.03em', marginBottom: 8 }}>
-                  <span className="shimmer-text">Frontend</span>
+                  <span className="shimmer-text">Security</span>
                   <br />
-                  <span style={{ color: t.fg }}>Developer.</span>
+                  <span style={{ color: t.fg }}>Researcher.</span>
                 </h1>
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: 10, margin: '16px 0 24px', color: t.fg2, fontSize: '0.95rem', flexWrap: 'wrap' }}>
@@ -909,11 +909,6 @@ export default function PortfolioPage() {
                 <br />
                 Built with Next.js & Framer Motion
               </p>
-            </div>
-
-            <div style={{ fontFamily: "'Fira Code', monospace", fontSize: '0.65rem', color: t.fg3, textAlign: 'center' }}>
-              <Terminal size={20} color={t.fg3} style={{ margin: '0 auto 6px' }} />
-              Made with ♥ in Seoul
             </div>
 
             <div style={{ display: 'flex', gap: 8, justifyContent: isTablet ? 'center' : 'flex-end', flexWrap: 'wrap' }}>
