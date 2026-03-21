@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Portfolio',
-  description: 'Next.js portfolio starter'
+  title: 'DH.J',
+  description: 'Donghyeon Jeong - Portfolio'
 };
 
 export const viewport = {
