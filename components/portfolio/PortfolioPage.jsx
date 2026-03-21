@@ -82,7 +82,7 @@ const PROFILE = {
   email: 'dhje0ng@naver.com',
   blog: 'dhjeong.kr',
   github: 'github.com/dhje0ng',
-  bio: 'test',
+  bio: 'I am a cybersecurity professional focused on vulnerability assessment and penetration testing research. I continuously work to strengthen my practical security expertise and actively engage in cybersecurity-related activities, including bug bounty programs. Passionate and driven, I am committed to expanding my technical capabilities and contributing to stronger security in real-world environments.',
   skills: ['Security']
 };
 
