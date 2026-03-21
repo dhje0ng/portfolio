@@ -135,27 +135,6 @@ const CAREERS = [
   },
   {
     company: 'Autocrypt',
-    role: 'Security Researcher',
-    period: '2021.12 - 2024.12',
-    type: 'Full-time',
-    location: 'Seoul, South Korea',
-    summary: 'Automotive ECU Pentesting and UNECE Cybersecurity Readiness Support',
-    stack: ['Penetration Testing', 'Automotive', 'UNECE'],
-    details: [
-      { num: '01', text: 'L사 차량 인포테인먼트 시스템 모의해킹 (Jaguar Land Rover, IP34)' },
-      { num: '02', text: 'E사 차량 조향 제어기 모의해킹' },
-      { num: '03', text: 'H사 MV1 ILCU 제어기 진단 기능 구현 검증 테스트 (ES)', extra: ['제어기 진단 통신 시 구현된 기능 상 보안 취약점 검증']},
-      { num: '04', text: 'H사 ADAS DRV2 제어기 모의해킹 & 유럽 사이버보안 인증 심사 대응 (UNECE)' },
-      { num: '05', text: 'L사 차량 인포테인먼트 시스템 모의해킹 (Jaguar Land Rover, IP37)' },
-      { num: '06', text: 'KATRI 국내 차량 통합보안시험도구 개발', extra: ['CAN, Automotive-Ethernet, Bluetooth, RF, NFC 주요 자동차 통신 프로토콜을 대상으로 알려진 보안 취약점 점검 및 통신 과정의 취약점 여부 확인 기능 구현']},
-      { num: '07', text: 'L사 차량 인포테인먼트 시스템 모의해킹 (Volkswagen, ID Series)' },
-      { num: '08', text: 'L사 차량 제어기 모의해킹 (VCM, TCUA)' },
-      { num: '09', text: 'L사 차량 클러스터 제어기 모의해킹 (Mercedes Benz, BR167)' },
-      { num: '10', text: 'G사 차량 진단기 프로그램 모의해킹', extra: ['윈도우 기반 어플리케이션으로 차량과 진단기 간 통신 과정에서 발생할 수 있는 취약점 분석(통신, 암호화 등) 및 개념 증명']},
-    ]
-  },
-  {
-    company: 'Autocrypt',
     role: 'Security Researcher (Internship)',
     period: '2021.06 - 2021.12',
     type: 'Full-time',
