@@ -89,48 +89,42 @@ const EDUCATION = [
   {
     school: 'Yeungnam University College',
     degree: 'Cybersecurity department',
-    period: '2018 – 2022',
+    period: '2018.03 – 2022.02',
     location: 'Daegu, South Korea',
   },
   {
-    school: 'OO 아카데미',
-    degree: 'Frontend Engineering Track',
-    period: '2022',
+    school: 'Best of the Best 9th, KITRI',
+    degree: 'Security Development Track',
+    period: '2020.07 - 2021.03',
     location: 'Seoul, South Korea',
   }
 ];
 
 const CAREERS = [
   {
-    company: 'ABC Tech',
-    role: 'Frontend Developer',
-    period: '2024.03 — Present',
+    company: 'Autocrypt',
+    role: 'Security Researcher',
+    period: '2021.12 - 2024.12',
     type: 'Full-time',
-    location: 'Seoul',
-    summary: '서비스 UI/UX 개선 및 사내 프론트엔드 아키텍처 고도화',
-    stack: ['Next.js', 'TypeScript', 'Zustand', 'Storybook'],
+    location: 'Seoul, South Korea',
+    summary: 'Automotive ECU Pentesting and UNECE Cybersecurity Readiness Support',
+    stack: ['Penetration Testing', 'Automotive', 'UNECE'],
     details: [
-      { num: '01', text: 'Next.js 기반 서비스 전면 리뉴얼 — 페이지 로딩 속도 38% 개선' },
-      { num: '02', text: '사내 디자인 시스템 & 공통 컴포넌트 라이브러리 구축' },
-      { num: '03', text: 'Lighthouse Performance 점수 61 → 94 달성' },
-      { num: '04', text: '보안 이슈 대응 대시보드 인터페이스 설계 및 실시간 시각화 구현' }
+      { num: '01', text: '테스트' },
     ]
   },
   {
-    company: 'Studio Sample',
-    role: 'Web Publisher / Frontend',
-    period: '2022.07 — 2024.02',
+    company: 'Autocrypt',
+    role: 'Security Researcher (Internship)',
+    period: '2021.06 - 2021.12',
     type: 'Full-time',
-    location: 'Seoul',
-    summary: '브랜드/프로모션 페이지 제작과 인터랙션 중심 UI 개발',
-    stack: ['React', 'GSAP', 'Scss', 'Webpack'],
+    location: 'Seoul, South Korea',
+    summary: 'Automotive ECU Pentesting and UNECE Cybersecurity Readiness Support',
+    stack: ['Vulnerability Research'],
     details: [
-      { num: '01', text: '캠페인 랜딩 페이지 30+ 제작, 평균 전환율 22% 향상' },
-      { num: '02', text: 'GSAP 기반 스크롤 인터랙션 및 마이크로 애니메이션 설계' },
-      { num: '03', text: '반응형 퍼블리싱 표준화, 접근성 WCAG 2.1 AA 준수' },
-      { num: '04', text: '기획-디자인-개발 협업 프로세스 문서화 및 온보딩 가이드 작성' }
+      { num: '01', text: '2021 사이버보안챌린지 자동차 인포테인먼트 시스템 공격/방어 대회 참가 및 연구(취약점 공격 및 방어 시스템 구현)' },
     ]
-  }
+  },
 ];
 
 const ACTIVITIES = [
