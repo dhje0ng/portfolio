@@ -76,7 +76,7 @@ const PROFILE = {
   name: 'Donghyeon Jeong',
   nameKo: '정동현',
   title: 'Security Researcher',
-  subtitle: 'UI Engineer · Web Interaction · Security Research',
+  subtitle: 'Security Researcher',
   location: 'Seoul, Korea',
   email: 'dhje0ng@naver.com',
   blog: 'dhjeong.kr',
@@ -87,8 +87,8 @@ const PROFILE = {
 
 const EDUCATION = [
   {
-    school: 'OO대학교',
-    degree: '컴퓨터공학과 학사',
+    school: 'Yeungnam University College',
+    degree: 'Cybersecurity department',
     period: '2018 – 2022',
     gpa: '3.9 / 4.5',
     desc: '웹 프론트엔드, UX, 보안 프로젝트 중심으로 실무형 결과물 제작. 졸업 논문: XSS 탐지 자동화 시스템 설계.'
