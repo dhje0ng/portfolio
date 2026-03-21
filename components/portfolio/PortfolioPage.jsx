@@ -507,7 +507,7 @@ function ActivityCard({ item, t, dark }) {
   );
 }
 
-function VulnRow({ item, t, dark }) {
+function VulnRow({ item, t, dark, isMobile }) {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -522,7 +522,7 @@ function VulnRow({ item, t, dark }) {
         {item.type === 'CVE' ? <Shield size={16} color={t.indigo} /> : <Bug size={16} color={t.indigo} />}
       </div>
 
-      <div style={{ flex: 1, minWidth: 200 }}>
+      <div style={{ flex: 1, minWidth: isMobile ? '100%' : 200 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
           <span style={{ fontFamily: "'Fira Code', monospace", fontWeight: 600, fontSize: '0.82rem', color: t.fg }}>{item.id}</span>
           <SeverityBadge severity={item.severity} dark={dark} />
@@ -533,7 +533,7 @@ function VulnRow({ item, t, dark }) {
         </div>
       </div>
 
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 6, flexShrink: 0 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: isMobile ? 'flex-start' : 'flex-end', gap: 6, flexShrink: 0, width: isMobile ? '100%' : 'auto' }}>
         <StatusBadge status={item.status} dark={dark} />
         {item.reward && <span style={{ fontFamily: "'Fira Code', monospace", fontSize: '0.68rem', color: '#10b981', fontWeight: 600 }}>{item.reward}</span>}
       </div>
@@ -545,6 +545,7 @@ export default function PortfolioPage() {
   const [dark, setDark] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [activeNav, setActiveNav] = useState('profile');
+  const [viewportWidth, setViewportWidth] = useState(1200);
   const heroRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
   const heroY = useTransform(scrollYProgress, [0, 1], [0, 80]);
@@ -552,6 +553,13 @@ export default function PortfolioPage() {
 
   useEffect(() => {
     setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    const onResize = () => setViewportWidth(window.innerWidth);
+    onResize();
+    window.addEventListener('resize', onResize, { passive: true });
+    return () => window.removeEventListener('resize', onResize);
   }, []);
 
   useEffect(() => {
@@ -575,6 +583,8 @@ export default function PortfolioPage() {
   }, []);
 
   const t = tk(dark);
+  const isMobile = viewportWidth < 768;
+  const isTablet = viewportWidth < 1024;
   const NAV = [
     { id: 'profile', label: 'Profile' },
     { id: 'career', label: 'Career' },
@@ -590,8 +600,8 @@ export default function PortfolioPage() {
     <div style={{ background: t.bg, color: t.fg, minHeight: '100vh', transition: 'background .4s, color .4s' }}>
       <GlobalStyles dark={dark} />
 
-      <nav style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100, background: t.navBg, backdropFilter: 'blur(16px)', borderBottom: `1px solid ${t.borderSub}`, height: 60 }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 24px', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+      <nav style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100, background: t.navBg, backdropFilter: 'blur(16px)', borderBottom: `1px solid ${t.borderSub}`, height: isMobile ? 56 : 60 }}>
+        <div style={{ maxWidth: 1100, margin: '0 auto', padding: isMobile ? '0 12px' : '0 24px', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: isMobile ? 8 : 0 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
             <div style={{ width: 32, height: 32, borderRadius: 8, background: t.indigo, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <Code2 size={16} color="#fff" />
@@ -599,12 +609,12 @@ export default function PortfolioPage() {
             <span style={{ fontFamily: "'Fira Code', monospace", fontSize: '0.8rem', color: t.indigo, letterSpacing: '0.05em' }}>portfolio.dev</span>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 4, overflowX: isMobile ? 'auto' : 'visible', maxWidth: isMobile ? '58vw' : 'none', scrollbarWidth: 'none' }}>
             {NAV.map((n) => (
               <a
                 key={n.id}
                 href={`#${n.id}`}
-                style={{ padding: '6px 14px', borderRadius: 8, fontSize: '0.82rem', fontWeight: 500, color: activeNav === n.id ? t.indigo : t.fg2, background: activeNav === n.id ? t.indigoBg : 'transparent', transition: 'all .2s' }}
+                style={{ padding: isMobile ? '6px 10px' : '6px 14px', borderRadius: 8, fontSize: isMobile ? '0.72rem' : '0.82rem', fontWeight: 500, color: activeNav === n.id ? t.indigo : t.fg2, background: activeNav === n.id ? t.indigoBg : 'transparent', transition: 'all .2s', whiteSpace: 'nowrap' }}
                 onMouseEnter={(e) => {
                   if (activeNav !== n.id) {
                     e.currentTarget.style.color = t.fg;
@@ -638,7 +648,7 @@ export default function PortfolioPage() {
         </div>
       </nav>
 
-      <section id="profile" ref={heroRef} style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', paddingTop: 60, position: 'relative', overflow: 'hidden' }}>
+      <section id="profile" ref={heroRef} style={{ minHeight: isMobile ? 'auto' : '100vh', display: 'flex', alignItems: 'center', paddingTop: isMobile ? 56 : 60, position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', overflow: 'hidden' }}>
           <div style={{ position: 'absolute', top: '15%', right: '8%', width: 400, height: 400, borderRadius: '50%', background: `radial-gradient(circle, ${t.indigo}18 0%, transparent 70%)`, animation: 'float 8s ease-in-out infinite' }} />
           <div style={{ position: 'absolute', bottom: '20%', left: '5%', width: 250, height: 250, borderRadius: '50%', background: `radial-gradient(circle, ${t.indigo}10 0%, transparent 70%)`, animation: 'float 10s ease-in-out infinite reverse' }} />
@@ -652,8 +662,8 @@ export default function PortfolioPage() {
           </svg>
         </div>
 
-        <motion.div style={{ y: heroY, opacity: heroOpacity, maxWidth: 1100, margin: '0 auto', padding: '80px 24px', width: '100%', position: 'relative' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 340px', gap: 64, alignItems: 'center' }}>
+        <motion.div style={{ y: heroY, opacity: heroOpacity, maxWidth: 1100, margin: '0 auto', padding: isMobile ? '56px 16px 40px' : '80px 24px', width: '100%', position: 'relative' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isTablet ? '1fr' : '1fr 340px', gap: isMobile ? 28 : 64, alignItems: 'center' }}>
             <div>
               <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 20 }}>
@@ -667,7 +677,7 @@ export default function PortfolioPage() {
                   <span style={{ color: t.fg }}>Developer.</span>
                 </h1>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: 10, margin: '16px 0 24px', color: t.fg2, fontSize: '0.95rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 10, margin: '16px 0 24px', color: t.fg2, fontSize: '0.95rem', flexWrap: 'wrap' }}>
                   <span style={{ fontWeight: 600, fontSize: '1.1rem', color: t.fg }}>{PROFILE.name}</span>
                   <span style={{ color: t.fg3 }}>·</span>
                   <span style={{ fontFamily: "'Fira Code', monospace", fontSize: '0.8rem', color: t.indigo }}>{PROFILE.title}</span>
@@ -725,7 +735,7 @@ export default function PortfolioPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
               className="float"
-              style={{ borderRadius: 24, border: `1px solid ${t.border}`, background: t.card, boxShadow: t.shadowHov, overflow: 'hidden' }}
+              style={{ borderRadius: 24, border: `1px solid ${t.border}`, background: t.card, boxShadow: t.shadowHov, overflow: 'hidden', maxWidth: isTablet ? 520 : 'none', width: '100%', justifySelf: isTablet ? 'center' : 'stretch' }}
             >
               <div style={{ background: `linear-gradient(135deg, ${t.indigo}22, ${t.indigo}08)`, padding: '32px 24px 24px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12, borderBottom: `1px solid ${t.cardBorder}` }}>
                 <div style={{ position: 'relative' }}>
@@ -788,7 +798,7 @@ export default function PortfolioPage() {
               </div>
               <span style={{ fontWeight: 700, fontSize: '1rem', color: t.fg }}>학력</span>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: isTablet ? '1fr' : '1fr 1fr', gap: 16 }}>
               {EDUCATION.map((ed, i) => (
                 <motion.div
                   key={ed.school}
@@ -841,7 +851,7 @@ export default function PortfolioPage() {
       <section id="activities" style={{ padding: '100px 0' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 24px' }}>
           <SectionLabel t={t}>// 03. external activities</SectionLabel>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 20 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isTablet ? '1fr' : 'repeat(2, 1fr)', gap: 20 }}>
             {ACTIVITIES.map((a, i) => (
               <motion.div
                 key={a.title}
@@ -861,7 +871,7 @@ export default function PortfolioPage() {
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 24px' }}>
           <SectionLabel t={t}>// 04. security research & disclosure</SectionLabel>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 16, marginBottom: 48 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)', gap: 16, marginBottom: 48 }}>
             {[
               { label: 'Total Findings', val: <Counter to={VULNS.length} />, sub: '취약점 제보' },
               { label: 'CVE Published', val: <Counter to={1} />, sub: '공개 취약점' },
@@ -898,7 +908,7 @@ export default function PortfolioPage() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
               >
-                <VulnRow item={v} t={t} dark={dark} />
+                <VulnRow item={v} t={t} dark={dark} isMobile={isMobile} />
               </motion.div>
             ))}
           </div>
@@ -907,7 +917,7 @@ export default function PortfolioPage() {
 
       <footer style={{ borderTop: `1px solid ${t.borderSub}`, background: t.bg }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '40px 24px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', alignItems: 'center', gap: 24 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: isTablet ? '1fr' : '1fr auto 1fr', alignItems: 'center', gap: 24, textAlign: isTablet ? 'center' : 'left' }}>
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
                 <div style={{ width: 28, height: 28, borderRadius: 7, background: t.indigo, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -927,7 +937,7 @@ export default function PortfolioPage() {
               Made with ♥ in Seoul
             </div>
 
-            <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', gap: 8, justifyContent: isTablet ? 'center' : 'flex-end', flexWrap: 'wrap' }}>
               {[
                 { label: 'Blog', href: `https://${PROFILE.blog}` },
                 { label: 'GitHub', href: `https://${PROFILE.github}` },
