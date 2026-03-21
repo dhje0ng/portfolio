@@ -368,44 +368,6 @@ function SectionLabel({ children, t }) {
   );
 }
 
-function Counter({ to, suffix = '' }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef(null);
-  const started = useRef(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !started.current) {
-          started.current = true;
-          let start = 0;
-          const step = Math.ceil(to / 40);
-          const timer = setInterval(() => {
-            start = Math.min(start + step, to);
-            setCount(start);
-            if (start >= to) {
-              clearInterval(timer);
-            }
-          }, 30);
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-    return () => observer.disconnect();
-  }, [to]);
-
-  return (
-    <span ref={ref}>
-      {count}
-      {suffix}
-    </span>
-  );
-}
-
 function CareerCard({ item, t, dark }) {
   const [open, setOpen] = useState(false);
 
@@ -915,34 +877,6 @@ export default function PortfolioPage() {
       <section id="security" style={{ padding: '100px 0', background: t.bg2 }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 24px' }}>
           <SectionLabel t={t}>// 04. security research & disclosure</SectionLabel>
-
-          <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)', gap: 16, marginBottom: 48 }}>
-            {[
-              { label: 'Total Findings', val: <Counter to={VULNS.length} />, sub: '취약점 제보' },
-              { label: 'CVE Published', val: <Counter to={1} />, sub: '공개 취약점' },
-              { label: 'Bounty Earned', val: '$3.3K+', sub: '버그바운티 수익' },
-              { label: 'Severity High+', val: <Counter to={2} />, sub: 'High 이상' }
-            ].map((s, i) => (
-              <motion.div
-                key={s.label}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08, duration: 0.5 }}
-                style={{ borderRadius: 16, border: `1px solid ${t.border}`, background: t.card, padding: '20px', textAlign: 'center', boxShadow: t.shadow, transition: 'box-shadow .3s' }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.boxShadow = t.shadowHov;
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.boxShadow = t.shadow;
-                }}
-              >
-                <div style={{ fontSize: '1.8rem', fontWeight: 800, color: t.indigo }}>{s.val}</div>
-                <div style={{ fontWeight: 600, fontSize: '0.78rem', color: t.fg, marginTop: 6 }}>{s.label}</div>
-                <div style={{ fontFamily: "'Fira Code', monospace", fontSize: '0.62rem', color: t.fg3, marginTop: 3 }}>{s.sub}</div>
-              </motion.div>
-            ))}
-          </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
             {VULNS.map((v, i) => (
