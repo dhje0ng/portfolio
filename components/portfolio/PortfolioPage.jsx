@@ -90,11 +90,13 @@ const EDUCATION = [
     school: 'Yeungnam University College',
     degree: 'Cybersecurity department',
     period: '2018 – 2022',
+    location: 'Daegu, South Korea',
   },
   {
     school: 'OO 아카데미',
     degree: 'Frontend Engineering Track',
     period: '2022',
+    location: 'Seoul, South Korea',
   }
 ];
 
@@ -797,6 +799,7 @@ export default function PortfolioPage() {
                     <div>
                       <div style={{ fontWeight: 700, fontSize: '0.95rem', color: t.fg }}>{ed.school}</div>
                       <div style={{ fontFamily: "'Fira Code', monospace", fontSize: '0.68rem', color: t.indigo, marginTop: 3 }}>{ed.degree}</div>
+                      {ed.location && <div style={{ fontFamily: "'Fira Code', monospace", fontSize: '0.68rem', color: t.fg3, marginTop: 6 }}>{ed.location}</div>}
                     </div>
                     <Badge t={t} color="ghost">{ed.period}</Badge>
                   </div>
