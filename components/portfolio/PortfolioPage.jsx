@@ -766,18 +766,6 @@ export default function PortfolioPage() {
                 </div>
               ))}
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', padding: '16px 0' }}>
-                {[
-                  { label: 'Projects', value: <Counter to={18} suffix="+" /> },
-                  { label: 'Talks', value: <Counter to={7} /> },
-                  { label: 'Reports', value: <Counter to={12} /> }
-                ].map((stat, i) => (
-                  <div key={stat.label} style={{ textAlign: 'center', borderRight: i < 2 ? `1px solid ${t.cardBorder}` : 'none', padding: '8px 0' }}>
-                    <div style={{ fontWeight: 800, fontSize: '1.3rem', color: t.indigo }}>{stat.value}</div>
-                    <div style={{ fontFamily: "'Fira Code', monospace", fontSize: '0.58rem', color: t.fg3, marginTop: 2, letterSpacing: '0.1em' }}>{stat.label}</div>
-                  </div>
-                ))}
-              </div>
             </motion.div>
           </div>
         </motion.div>
