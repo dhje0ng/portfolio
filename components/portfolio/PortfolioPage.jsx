@@ -77,6 +77,7 @@ const PROFILE = {
   nameKo: '정동현',
   title: 'Security Researcher',
   subtitle: 'Security Researcher',
+  photoUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80',
   location: 'Seoul, Korea',
   email: 'dhje0ng@naver.com',
   blog: 'dhjeong.kr',
@@ -197,8 +198,8 @@ const VULNS = [
     severity: 'Medium',
     target: 'Renault Group (Model: 2021 ZOE)',
     desc: '차량 인포테인먼트 시스템에 잘못된 USB 데이터 전송 시 시스템 충돌 (DoS)',
+    reference: 'https://nvd.nist.gov/vuln/detail/CVE-2023-39075',
     status: 'Published',
-    reward: null,
     date: '2023.08'
   },
   {
@@ -207,8 +208,8 @@ const VULNS = [
     severity: 'Medium',
     target: 'General Motors (Model: Chevrolet Equinox)',
     desc: '차량 인포테인먼트 시스템에 잘못된 USB 데이터 전송 시 시스템 충돌 (DoS)',
+    reference: 'https://nvd.nist.gov/vuln/detail/CVE-2023-39076',
     status: 'Published',
-    reward: null,
     date: '2023.08'
   },
   {
@@ -217,8 +218,8 @@ const VULNS = [
     severity: 'Medium',
     target: 'Kodi Foundation (S/W: xbmc)',
     desc: '잘못된 이미지 처리 기능 구현으로 버퍼 오버플로우 취약점',
+    reference: 'https://nvd.nist.gov/vuln/detail/CVE-2023-23082',
     status: 'Resolved',
-    reward: '$800',
     date: '2024.11'
   },
   {
@@ -227,8 +228,8 @@ const VULNS = [
     severity: 'Medium',
     target: 'BMW Automotive',
     desc: 'This is not published. (NDA)',
+    reference: null,
     status: 'Resolved',
-    reward: '500$',
     date: '2022.12'
   }
 ];
@@ -517,6 +518,16 @@ function VulnRow({ item, t, dark, isMobile }) {
           <SeverityBadge severity={item.severity} dark={dark} />
         </div>
         <div style={{ fontSize: '0.8rem', color: t.fg2, marginTop: 4, lineHeight: 1.6 }}>{item.desc}</div>
+        {item.reference && (
+          <a
+            href={item.reference}
+            target="_blank"
+            rel="noreferrer"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: 5, fontFamily: "'Fira Code', monospace", fontSize: '0.66rem', color: t.indigo, marginTop: 6 }}
+          >
+            참고 링크 <ExternalLink size={11} />
+          </a>
+        )}
         <div style={{ fontFamily: "'Fira Code', monospace", fontSize: '0.63rem', color: t.fg3, marginTop: 4 }}>
           {item.target} · {item.date}
         </div>
@@ -524,7 +535,6 @@ function VulnRow({ item, t, dark, isMobile }) {
 
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: isMobile ? 'flex-start' : 'flex-end', gap: 6, flexShrink: 0, width: isMobile ? '100%' : 'auto' }}>
         <StatusBadge status={item.status} dark={dark} />
-        {item.reward && <span style={{ fontFamily: "'Fira Code', monospace", fontSize: '0.68rem', color: '#10b981', fontWeight: 600 }}>{item.reward}</span>}
       </div>
     </motion.div>
   );
@@ -728,9 +738,17 @@ export default function PortfolioPage() {
             >
               <div style={{ background: `linear-gradient(135deg, ${t.indigo}22, ${t.indigo}08)`, padding: '32px 24px 24px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12, borderBottom: `1px solid ${t.cardBorder}` }}>
                 <div style={{ position: 'relative' }}>
-                  <div style={{ width: 90, height: 90, borderRadius: '50%', background: `linear-gradient(135deg, ${t.indigo}, #818cf8)`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem', fontWeight: 800, color: '#fff', border: `3px solid ${dark ? t.bg : '#fff'}`, boxShadow: `0 4px 20px ${t.indigo}44` }}>
-                    {PROFILE.name.charAt(0)}
-                  </div>
+                  {PROFILE.photoUrl ? (
+                    <img
+                      src={PROFILE.photoUrl}
+                      alt={`${PROFILE.name} profile photo`}
+                      style={{ width: 90, height: 90, borderRadius: '50%', objectFit: 'cover', objectPosition: 'center', border: `3px solid ${dark ? t.bg : '#fff'}`, boxShadow: `0 4px 20px ${t.indigo}44` }}
+                    />
+                  ) : (
+                    <div style={{ width: 90, height: 90, borderRadius: '50%', background: `linear-gradient(135deg, ${t.indigo}, #818cf8)`, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem', fontWeight: 800, color: '#fff', border: `3px solid ${dark ? t.bg : '#fff'}`, boxShadow: `0 4px 20px ${t.indigo}44` }}>
+                      {PROFILE.name.charAt(0)}
+                    </div>
+                  )}
                   <div style={{ position: 'absolute', bottom: 2, right: 2, width: 18, height: 18, borderRadius: '50%', background: '#10b981', border: `2px solid ${dark ? t.bg : '#fff'}` }} />
                 </div>
                 <div style={{ textAlign: 'center' }}>
