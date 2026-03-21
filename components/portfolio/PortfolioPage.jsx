@@ -90,15 +90,11 @@ const EDUCATION = [
     school: 'Yeungnam University College',
     degree: 'Cybersecurity department',
     period: '2018 – 2022',
-    gpa: '3.9 / 4.5',
-    desc: '웹 프론트엔드, UX, 보안 프로젝트 중심으로 실무형 결과물 제작. 졸업 논문: XSS 탐지 자동화 시스템 설계.'
   },
   {
     school: 'OO 아카데미',
     degree: 'Frontend Engineering Track',
     period: '2022',
-    gpa: null,
-    desc: 'React, Next.js, TypeScript, 디자인 시스템, 성능 최적화 심화 과정 수료.'
   }
 ];
 
@@ -816,8 +812,6 @@ export default function PortfolioPage() {
                     </div>
                     <Badge t={t} color="ghost">{ed.period}</Badge>
                   </div>
-                  {ed.gpa && <div style={{ fontFamily: "'Fira Code', monospace", fontSize: '0.68rem', color: t.fg3, marginBottom: 10 }}>GPA {ed.gpa}</div>}
-                  <p style={{ fontSize: '0.8rem', lineHeight: 1.75, color: t.fg2 }}>{ed.desc}</p>
                 </motion.div>
               ))}
             </div>
