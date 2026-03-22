@@ -83,7 +83,7 @@ const PROFILE = {
   blog: 'dhjeong.kr',
   github: 'github.com/dhje0ng',
   bio: 'I am a cybersecurity professional focused on vulnerability assessment and penetration testing research. I continuously work to strengthen my practical security expertise and actively engage in cybersecurity-related activities, including bug bounty programs. Passionate and driven, I am committed to expanding my technical capabilities and contributing to stronger security in real-world environments.',
-  skills: ['Security']
+  skills: ['Vulnerability', 'Bug Bounty', 'Security Research', 'Automotive']
 };
 
 const EDUCATION = [
@@ -198,17 +198,17 @@ const ACTIVITIES = [
     org: 'DEFCON, Car Hacking Village',
     desc: '실제 차량에서 USB 퍼징을 수행하고 취약점을 찾는 과정에 대한 발표 내용입니다.',
     icon: <Mic size={16} />,
-    href: 'https://www.youtube.com/watch?v=YZh7frj1Buo'
+    href: 'https://www.youtube.com/watch?v=W_vQ5s1bB30&ntb=1&msockid=c78c1bef25a411f186bda3c6859eb8e5'
   },
   {
-    title: 'University Security Club Activities',
+    title: 'External Hacking & Security Club Activities',
     type: 'Community',
     role: 'Member',
-    period: '2019.03 - 2021.11',
-    org: 'Yeungnam University Security Club',
-    desc: '교내 보안 동아리에서 CTF 스터디와 모의해킹 실습, 팀 프로젝트 활동을 진행했습니다.',
+    period: '2020.08 ~ Present',
+    org: 'Demon @ With POC Security',
+    desc: '화이트 해킹/보안 연구팀 Demon 멤버 소속으로 해킹캠프 CTF 운영 및 지원, 버그 바운티, 보안 취약점 연구 활동을 수행합니다.',
     icon: <Users size={16} />,
-    href: 'https://github.com/topics/ctf'
+    href: 'https://demon-kr.github.io'
   },
 ];
 
