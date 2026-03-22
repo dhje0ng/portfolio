@@ -83,7 +83,7 @@ const PROFILE = {
   blog: 'dhjeong.kr',
   github: 'github.com/dhje0ng',
   bio: 'I am a cybersecurity professional focused on vulnerability assessment and penetration testing research. I continuously work to strengthen my practical security expertise and actively engage in cybersecurity-related activities, including bug bounty programs. Passionate and driven, I am committed to expanding my technical capabilities and contributing to stronger security in real-world environments.',
-  skills: ['Security']
+  skills: ['Vulnerability', 'Bug Bounty', 'Security Research', 'Automotive']
 };
 
 const EDUCATION = [
@@ -197,7 +197,18 @@ const ACTIVITIES = [
     period: '2023.08',
     org: 'DEFCON, Car Hacking Village',
     desc: '실제 차량에서 USB 퍼징을 수행하고 취약점을 찾는 과정에 대한 발표 내용입니다.',
-    icon: <Mic size={16} />
+    icon: <Mic size={16} />,
+    href: 'https://www.youtube.com/watch?v=W_vQ5s1bB30&ntb=1&msockid=c78c1bef25a411f186bda3c6859eb8e5'
+  },
+  {
+    title: 'External Hacking & Security Club Activities',
+    type: 'Community',
+    role: 'Member',
+    period: '2020.08 ~ Present',
+    org: 'Demon @ With POC Security',
+    desc: '화이트 해킹/보안 연구팀 Demon 멤버 소속으로 해킹캠프 CTF 운영 및 지원, 버그 바운티, 보안 취약점 연구 활동을 수행합니다.',
+    icon: <Users size={16} />,
+    href: 'https://demon-kr.github.io'
   },
 ];
 
@@ -470,12 +481,16 @@ function ActivityCard({ item, t, dark }) {
   const [hovered, setHovered] = useState(false);
   const typeColor = { Conference: '#6366f1', Seminar: '#0ea5e9', Community: '#10b981', Award: '#f59e0b' };
   const tc = typeColor[item.type] || '#6366f1';
+  const hasLink = Boolean(item.href);
 
   return (
-    <div
+    <a
+      href={hasLink ? item.href : undefined}
+      target={hasLink ? '_blank' : undefined}
+      rel={hasLink ? 'noreferrer noopener' : undefined}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      style={{ borderRadius: 16, border: `1px solid ${hovered ? `${tc}66` : t.cardBorder}`, background: t.card, padding: '24px', overflow: 'hidden', position: 'relative', boxShadow: hovered ? `0 8px 32px ${tc}22` : t.shadow, transition: 'all .3s', cursor: 'default' }}
+      style={{ borderRadius: 16, border: `1px solid ${hovered ? `${tc}66` : t.cardBorder}`, background: t.card, padding: '24px', overflow: 'hidden', position: 'relative', boxShadow: hovered ? `0 8px 32px ${tc}22` : t.shadow, transition: 'all .3s', cursor: hasLink ? 'pointer' : 'default', display: 'flex', flexDirection: 'column', height: '100%' }}
     >
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: tc, transform: hovered ? 'scaleX(1)' : 'scaleX(0)', transformOrigin: 'left', transition: 'transform .3s ease' }} />
 
@@ -503,7 +518,7 @@ function ActivityCard({ item, t, dark }) {
           VIEW <ArrowUpRight size={12} />
         </div>
       </div>
-    </div>
+    </a>
   );
 }
 
@@ -894,6 +909,7 @@ export default function PortfolioPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
+                style={{ height: '100%' }}
               >
                 <ActivityCard item={a} t={t} dark={dark} />
               </motion.div>
