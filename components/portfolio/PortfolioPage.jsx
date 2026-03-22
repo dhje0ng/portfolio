@@ -490,7 +490,7 @@ function ActivityCard({ item, t, dark }) {
       rel={hasLink ? 'noreferrer noopener' : undefined}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      style={{ borderRadius: 16, border: `1px solid ${hovered ? `${tc}66` : t.cardBorder}`, background: t.card, padding: '24px', overflow: 'hidden', position: 'relative', boxShadow: hovered ? `0 8px 32px ${tc}22` : t.shadow, transition: 'all .3s', cursor: hasLink ? 'pointer' : 'default', display: 'block' }}
+      style={{ borderRadius: 16, border: `1px solid ${hovered ? `${tc}66` : t.cardBorder}`, background: t.card, padding: '24px', overflow: 'hidden', position: 'relative', boxShadow: hovered ? `0 8px 32px ${tc}22` : t.shadow, transition: 'all .3s', cursor: hasLink ? 'pointer' : 'default', display: 'flex', flexDirection: 'column', height: '100%' }}
     >
       <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 3, background: tc, transform: hovered ? 'scaleX(1)' : 'scaleX(0)', transformOrigin: 'left', transition: 'transform .3s ease' }} />
 
@@ -909,6 +909,7 @@ export default function PortfolioPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
+                style={{ height: '100%' }}
               >
                 <ActivityCard item={a} t={t} dark={dark} />
               </motion.div>
